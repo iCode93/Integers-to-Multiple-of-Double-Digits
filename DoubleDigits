@@ -1,0 +1,191 @@
+import java.util.*;
+import java.lang.Math;   
+
+
+public class main {
+
+   public static void main (String[] args) {
+   
+   // putting entered numbers into array
+   
+   Scanner input = new Scanner(System.in); 
+   
+  
+   
+   System.out.println("How many numbers would you like to enter?"); 
+   
+    int mainArrayLength = input.nextInt(); //storing user input into integer array called mainArray
+    
+  int[] mainArray = new int[mainArrayLength]; //initializing mainArray
+  
+   
+      
+   
+  
+   
+   
+   
+   for (int i = 0; i < mainArrayLength; i++)
+   {
+   System.out.println("Please enter integer value"); 
+   mainArray[i] = (input.nextInt()); 
+   
+   }
+   
+
+
+   
+  
+   
+       for (int i = 0; i < mainArrayLength; i++)
+         {
+      
+          
+        
+         //special case 0
+         
+         int m = 2; 
+         int x= 1; 
+          
+        
+         while (x != 2)
+         {
+         
+        
+         //taking each individual element of mainArray and splitting it into its own array. 
+         
+         x = 1;
+         
+         int number = m* mainArray[i];  
+         int numberCopy = number; 
+         
+         
+         
+         int counter = 0; 
+   
+         //System.out.print(mainArray[i] + " "); Value of user integer array element
+   
+          while (numberCopy > 0)                 //dividing integers by 10 until 0 to get length of number.
+            {
+          numberCopy = numberCopy/ 10; 
+          counter++; 
+          //System.out.print(numberCopy + " "); 
+          //System.out.println(numberCopy); 
+               } 
+   
+          
+   
+          int[] Array = new int[counter]; 
+   
+          
+          
+          for (int j = 0; j <Array.length; j++)             // splitting each element mainArray into its own array.
+          {
+          
+                 double power = Math.pow(10, (counter -1)); 
+                 
+                 //System.out.print(power + " "); 
+   
+                  int intPower = (int)power; 
+                  
+                  //System.out.print(intPower + " "); 
+   
+                  Array[j] = number/intPower; 
+                  
+                 // System.out.print(Array[j]); 
+   
+                  number = number%intPower; 
+                  
+                  counter--; 
+                  
+                
+                  
+                
+                
+                
+             }
+                
+                 /* Setting values for counters and digits 
+         x is number of digits in number counter
+         m is to multiply the original number by increments of 1 starting at 2 (numberx1, numberx2, etc) 
+         new n = new value of original number 
+         d1 = digit 1 in number
+         d2 = digit 2 in number
+         d1c is amount of times d1 shows up in number
+         d2c is amount of times d2 shows up in number
+         */ 
+         
+         
+         int d1 =Array[0]; 
+         int d2 =0; 
+         int d1c = 0; 
+         int d2c = 0; 
+         
+               
+                //now compare values of array iteratively to see how many digits it has
+         
+         
+         for (int k = 0; k < (Array.length-1) ; k++)
+         {
+        
+            
+         
+         if (Array[k] == d1)
+            d1c++; 
+         
+         if (Array[k] != Array[k+1])
+            {
+             d2 = Array[k+1]; 
+             d2c++; 
+            }
+            
+         if (Array[k] == d2)
+            d2c++;
+         if  (Array[k+1] != Array[k])
+             {
+              x++; 
+               
+        
+               }
+               
+              }
+        
+        if  (x == 2)
+        {
+        System.out.println(mainArray[i] + ": " + d1c + " " + d1 + " " + d2c + " " + d2);     
+              }
+              
+        if (x != 2)
+        {
+        m++; 
+       
+         
+        }
+        
+       // System.out.print("m " + m);
+       // System.out.print("x " + x); 
+       //  System.out.println(); 
+         //System.out.println(x); 
+        
+         
+         
+            
+           
+        
+        
+        
+      
+    
+    
+      } //end mainArray for loop
+      
+      }//end while loop 
+      
+     } //end main
+  } // end Class
+   
+   
+   
+   
+   
+   
